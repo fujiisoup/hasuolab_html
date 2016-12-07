@@ -1,0 +1,17 @@
+# copy-command file
+ftp_copy.sh
+
+# log directories
+logs/
+
+# previous backup directories. The backup is taken care by git.
+old/
+db_backup/
+backup/
+
+# password files
+passwd/
+passwds/
+
+# other operational dir
+vhome/
