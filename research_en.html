@@ -56,75 +56,17 @@
 <br><br>
 
 
-<a href="#lhd"><img src="img/icon.gif" alt="icon" border="0" />High Temperature Plasma Diagnostics by High Dynamic-Range Spectroscopy</a>
-<br>
-<a href="#echelle"><img src="img/icon.gif" alt="icon" border="0" />Development of a wide-band and high-resolution spectrometer (echelle spectrometer) and observation of impurity emission lines in fusion plasmas</a>
-<br>
 <a href="#lithium"><img src="img/icon.gif" alt="icon" border="0" />Investigation of Electron Dynamics in ECR Plasmas by Polarization Spectroscopy of Lithium Atom Emission</a>
 <br>
 <a href="#micro_plasma"><img src="img/icon.gif" alt="icon" border="0" />Diode laser absorption spectroscopy of atmospheric-pressure micro-plasmas </a>
 <br>
-<a href="#LIF"><img src="img/icon.gif" alt="icon" border="0" />Observation of collision processes in plasma by laser induced fluorescence</a>
-
-
+<a href="#machine_learning"><img src="img/icon.gif" alt="icon" border="0" />Application of Machine Learning to Scientific Measurement</a>
 <br>
+<a href="#lhd"><img src="img/icon.gif" alt="icon" border="0" />High Temperature Plasma Diagnostics by High Dynamic-Range Spectroscopy</a>
 <br>
-
-
-<h4 id="lhd">High Temperature Plasma Diagnostics by High Dynamic-Range Spectroscopy</h2>
-<center><img src="research_img/LHD_HDRspec.png" width="600">
-<br clear="left">
-<h3>FIG.1 left: A schematic illustration of a high temperature plasma generator, LHD.
-right: A large dynamic-range spectrometer developed by our lab.</h3>
-</center>
-<p>
- In corporation with National Institute for Fusion Science, we study high temperature plasmas generated in Large Helical Device (LHD, depicted in figure 1 left).
- In LHD, hydrogen atoms are heated over 10 million degrees and ionized into electrons and protons.
- Such a state of the gas is called as "plasma".
- During the ionization of atoms, they emit light.
- From the observation of the light, we study the dynamics of the hydrogen atoms in the high temperature plasma.
- Our specialty is a measurement by developing a new instrument with high-specification.
- Figure 1 right shows a picture of a high dynamic-range spectroscopic system developed in our lab. <br>
-<br>
- Figure 2 shows the Balmer-&alpha; line profile observed for an LHD plasma.
- It is noted that the vertical axis is logarithmic.
- Thanks to the high dynamic-range of the instrument, the simultaneous observation of the line center and wings whose intensity is over 10<sup>3</sup> times smaller than the peak intensity has been achieved.
- The solid curves in the figure show the results of a hydrogen transport simulation. <br>
- From the study, we found the emission from the few neutral hydrogen atoms exist in the very high temperature regions, which have been considered to be unable to be observed [1,2].<br>
- Now we are working toward the much higher dynamic-range and the higher time-resolution measurements and also proposing the above technique as a new diagnostic method for high temperature plasmas.<br>
-<br>
-</p>
-<center><img src="research_img/Balmer-a.png" width="300" align="middle" >
-<h3>FIG.2 A Balmer-&alpha; line profile observed for an LHD plasma. Vertical axis is logarithmic. The results of simulation are shown by solid curves.</h3>
-</center>
-<h3>
-[1] M. Goto, K. Sawada, K. Fujii et al., Nucl. Fusion, 5151 023005 (2011)<br>
-[2] K Fujii, T. Shikama M. Goto et al., Phys. Plasmas, 20, 012514 (2013)
-</h3>
-<a href="#top"><img src="img/up_icon.gif" border="0">top</a>
-<br>
-
-<h4 id="echelle">Development of a wide-band and high-resolution spectrometer and observation of impurity emission lines in fusion plasmas</h2>
-<center><img src="research_img/echelle.png" width="400">
-<br clear="left">
-<h3>Fig. 1 Left: The echelle spectrometer we developed. Right: A focused image of white light. The decomposition against the wavelength can be seen.</h3>
-</center>
-<p>
-Impurities such as tungsten affect the stability of plasmas in fusion devices.
-However, there still remain many uncertainties about the atomic structure of tungsten.
-Accumulation of the atomic data is imperative.
-<br>
-As a collaboration with National Institute for Fusion Science (NIFS), we developed a wide wavelength range and high resolution echelle spectrometer.
-A schematic illustration is shown in the left part of Fig.1.
-The right part shows a focused image of white light decomposed against the wavelength (i.e. the color) of light by the spectrometer.
-Recently, we have measured the emission spectra of tungsten in the fusion device with the echelle spectrometer.
-We have succeeded to find emission lines of tungsten that have not been previously reported.
-Now, we are making a detail analysis of the measured data obtained voluminously and improving the echelle spectroscopy system toward higher resolution and higher throughput.
 
 
 <br>
-</p>
-<a href="#top"><img src="img/up_icon.gif" border="0">top</a>
 <br>
 
 
@@ -164,20 +106,65 @@ We are developing a method to determine such parameters by analyzing such absorp
 <a href="#top"><img src="img/up_icon.gif" border="0">top</a>
 <br>
 
-
-<h4 id="LIF">Observation of collision processes in plasma by laser induced fluorescence</h2>
-<center><img src="research_img/N2laser.jpg" width="300">
+<h2 id="machine_learning">Accuracy Improvement based on Machine Learning</h2>
+<center><img src="research_img/ml_thomson.png" width="600">
 <br clear="left">
-<h3>Fig.1 A subnano-second pulse laser</h3>
+<h3>Figure　
+  (a): Electron density distribution in LHD plasma measured by current Thomson scattering system.
+  (b): Calibrated resutls by machine learning method.
 </center>
 <p>
-An observation technique of fluorescence from atoms excited by laser is called laser induced fluorescence. We are investigating atomic collision processes by laser induced fluorescence with nano- or subnano-second pulse laser (Fig. 1).
+We are developing diagnostic methods based on machine learning.<br>
+In general, every measurement data is suffered from systematic noise due to calibration error of the measurement systems.
+We focus on the fact that the measured data itself contains information of the calibration error,
+we developed a method to extract the systematic scatter in a lot of data and
+calibrated the measurement system.
+We applied this method to the electron density distribution data measured by Thomson scattering system (Fig. (a)).
+
+The result is shown in Fig. (b). Most of the scatter are removed by this post-calibration,
+and the signal to noise ratio improves by factor 5.
+This enabled us to observe more detailed spatial structure of the electron density in high temperature plasmas.
 <br>
-Recently, we have observe the rates of the disalignment and excitation transfer processes of the excited rare gas atoms by atomic collisions.<br>
-<br>
+<h3>
+[1] K. Fujii et al., Review of Scientific Instruments 88, 013508 (2017)
+</h3>
 </p>
 <a href="#top"><img src="img/up_icon.gif" border="0">top</a>
 <br>
+
+<h4 id="lhd">High Temperature Plasma Diagnostics by High Dynamic-Range Spectroscopy</h2>
+<center><img src="research_img/LHD_HDRspec.png" width="400">
+<br clear="left">
+<h3>FIG.1 left: A schematic illustration of a high temperature plasma generator, LHD.
+right: A large dynamic-range spectrometer developed by our lab.</h3>
+</center>
+<p>
+ In corporation with National Institute for Fusion Science, we study high temperature plasmas generated in Large Helical Device (LHD, depicted in figure 1 left).
+ In LHD, hydrogen atoms are heated over 10 million degrees and ionized into electrons and protons.
+ Such a state of the gas is called as "plasma".
+ During the ionization of atoms, they emit light.
+ From the observation of the light, we study the dynamics of the hydrogen atoms in the high temperature plasma.
+ Our specialty is a measurement by developing a new instrument with high-specification.
+ Figure 1 right shows a picture of a high dynamic-range spectroscopic system developed in our lab. <br>
+<br>
+ Figure 2 shows the Balmer-&alpha; line profile observed for an LHD plasma.
+ It is noted that the vertical axis is logarithmic.
+ Thanks to the high dynamic-range of the instrument, the simultaneous observation of the line center and wings whose intensity is over 10<sup>3</sup> times smaller than the peak intensity has been achieved.
+ The solid curves in the figure show the results of a hydrogen transport simulation. <br>
+ From the study, we found the emission from the few neutral hydrogen atoms exist in the very high temperature regions, which have been considered to be unable to be observed [1,2].<br>
+ Now we are working toward the much higher dynamic-range and the higher time-resolution measurements and also proposing the above technique as a new diagnostic method for high temperature plasmas.<br>
+<br>
+</p>
+<center><img src="research_img/Balmer-a.png" width="300" align="middle" >
+<h3>FIG.2 A Balmer-&alpha; line profile observed for an LHD plasma. Vertical axis is logarithmic. The results of simulation are shown by solid curves.</h3>
+</center>
+<h3>
+[1] M. Goto, K. Sawada, K. Fujii et al., Nucl. Fusion, 5151 023005 (2011)<br>
+[2] K Fujii, T. Shikama M. Goto et al., Phys. Plasmas, 20, 012514 (2013)
+</h3>
+<a href="#top"><img src="img/up_icon.gif" border="0">top</a>
+<br>
+
 
 
   </div>
