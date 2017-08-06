@@ -1,0 +1,446 @@
+@charset "UTF-8";
+
+
+/*---------- ページ全体の指定 ----------*/
+
+body {
+  font-family: "ヒラギノ角ゴ Pro W3", "Hiragino Kaku Gothic Pro", "メイリオ", Meiryo, Osaka, "MS P ゴシック", "MS P Gothic", sans-Serif;
+  margin: 0;
+  padding: 0;
+  font-size: 13px;
+  color: #333333;
+  background-image: url(img/back.gif);
+  background-repeat: repeat-x;
+ }
+
+
+/* IE7 用 */
+
+*:first-child+html * {
+  font-family: "メイリオ", Meiryo, "MS P ゴシック", "MS P Gothic", sans-Serif;
+}
+
+
+/* IE6 用 */
+* html * {
+  font-family: "メイリオ", Meiryo, "MS P ゴシック", "MS P Gothic", sans-Serif;
+}
+
+
+a:link {
+  color: #004080;
+  font-size: 16px;
+}
+
+a:hover {
+  color: #005ebb;
+  font-size: 16px;
+}
+
+a:visited {
+  color: #004080;
+  font-size: 16px;
+}
+
+p {
+  margin: 18px 0 18px 0;
+  line-height: 180%;
+  letter-spacing: 1px;
+}
+
+
+/*---------- メイン ----------*/
+
+#main {
+  margin: 0 auto 0 auto;
+  padding: 0;
+  width: 900px;
+  border-bottom: solid 1px #9f9f9f;
+  background-color: #ffffff;
+}
+
+
+/*---------- ヘッダー ----------*/
+
+#header {
+  margin: 0;
+  width: 900px;
+  height: 240px;
+  border-bottom: solid 5px #cccccc;
+  background-color: #ffffff;
+  background-repeat: no-repeat;
+  background-image: url(img/side_yback2.jpg);
+
+}
+
+#header h3{
+  margin: 0;
+  width: 900px;
+  height: 148px;
+  background-image: url(img/top.jpg) ;
+}
+
+#header h1 {
+  margin: 0;
+  padding: 2px 0 2px 10px;
+  border-bottom: solid 1px #005ebb;
+  text-align: left;
+  font-weight: normal;
+  font-size: 10px;
+  color: #004080;
+//  background-image: url(img/h_back.gif);
+  background-repeat: no-repeat;
+}
+
+#header h2 {
+  margin: 0;
+  padding: 0px 0px 0 20px;
+  width: 220px;
+  text-align: left;
+  font-size: 20px;
+  color: #ffffff;
+//  color: #666666;
+  letter-spacing: 1px;
+}
+
+#header p {
+  margin: 0;
+  padding:  4px 0 0 30px;
+  text-align: left;
+  font-size: 13px;
+  color: #666666;
+  letter-spacing: 1px;
+}
+
+
+#table-left{
+  text-align: left;
+  font-size: 13px;
+  color: #666666;
+  line-height: 150%;
+  text-decoration: none;
+}
+
+#table-left a{
+  font-size: 20px;
+  color: #555555;
+  text-decoration: none;
+}
+
+#table-left a:hover{
+  font-size: 20px;
+  color: #999999;
+  text-decoration: none;
+}
+
+
+#table-right{
+  text-align: right;
+  margin: 0;
+  padding: 2px 14px 2px 0;
+  font-size: 12px;
+  color: #666666;
+  line-height: 150%;
+  text-decoration: none;
+}
+
+#table-right a{
+  font-size: 14px;
+  color: #555555;
+  text-decoration: none;
+}
+
+#table-right a:hover{
+  font-size: 14px;
+  color: #999999;
+  text-decoration: none;
+}
+
+
+/*---------- コンテンツ ----------*/
+
+#container {
+  width: 888px;
+  overflow: hidden;
+  margin: 0px;
+  padding: 7px 6px 6px 6px;
+  background: #ffffff url(img/side_yback.jpg);
+  background-repeat: repeat-y;
+}
+
+
+/*---------- メインコンテンツ ----------*/
+
+#contents {
+  float: right;
+  margin: 0;
+  padding: 5px 10px 5px 0;
+  font-size: 16px;
+  line-height: 180%;
+  width: 640px;
+  letter-spacing: 1px;
+}
+
+#contents #pannavi {
+  margin: 0;
+  padding: 0 0 5px 0;
+  font-size: 12px;
+}
+
+#contents h1 {
+  height: 30px;
+  margin: 7px 0 7px 0;
+  padding: 8px 8px 0 20px;
+  font-size: 18px;
+  color: #ffffff;
+  background-image: url(img/freebu14_6.gif);
+//  background-repeat: no-repeat;
+}
+
+#contents h2 {
+  height: 28px;
+  margin: 0 0 7px 0;
+  padding: 7px 0 0 20px;
+  font-size: 16px;
+  color: #004080;
+  background-image: url(img/titlebar.gif);
+  background-repeat: no-repeat;
+}
+
+#contents h4 {
+  height: 58px;
+  margin: 0 0 7px 0;
+  padding: 0px 0 0 20px;
+  font-size: 16px;
+  color: #004080;
+  background-image: url(img/titlebar_fat.gif);
+  background-repeat: no-repeat;
+}
+
+#contents p {
+  margin: 18px 0 18px 0;
+  padding: 0 5px 0 5px;
+  line-height: 180%;
+  font-size: 16px;
+  text-align: justify;
+  text-justify: inter-ideograph;
+}
+
+#contents h3 {
+  margin: 18px 0 18px 0;
+  padding: 0 5px 0 5px;
+  line-height: 180%;
+  font-size: 13px;
+}
+
+#contents img.head_photo {
+  margin: 0 0 10px 0;
+}
+
+#contents img.photo {
+  float: middle;
+  margin: 10px 20px 0 0;
+}
+
+#contents img.picture {
+  margin: 0 10px 10px 0;
+  float: left;
+}
+
+#contents p.photo {
+  margin: 0 0 20px 0;
+  padding: 0;
+}
+
+
+table#t01 {
+  border: solid 1px #999999;
+  border-collapse: collapse;
+}
+
+
+td#t01 {
+  border: solid 1px #999999;
+  border-collapse: collapse;
+}
+
+
+td#head {
+  padding: 6px;
+  border: solid 1px #999999;
+  border-collapse: collapse;
+}
+
+
+
+/*---------- メニュー ----------*/
+
+#menu {
+  float: left;
+  margin: 0 0 15px 0;
+  padding: 0;
+  width: 220px;
+  text-align: left;
+  letter-spacing: 1px;
+}
+
+.menulist {
+  margin: 0 0 15px 0;
+  padding: 5px 2px 0px 5px;
+  width: 220px;
+  text-alig2n: left;
+}
+
+.menulist h2 {
+  height: 20px;
+  margin: 0;
+  padding: 4px 0 2px 12px;
+  font-size: 13px;
+  color: #fffffc;
+  background-image: url(img/sidebar.gif);
+  background-repeat: no-repeat;
+}
+
+.menulist a{
+  color: #004080;
+  display: block;
+  width: 200px;
+  padding: 15px 4px 18px 15px;
+  font-size: 14px;
+  line-height: 160%;
+  background-image: url(img/btn053_09.png);
+  background-repeat: no-repeat;
+  font-weight:bold;
+ }
+
+.menulist a:hover{
+  color: #005ebb;
+  background-image: url(img/btn053_02.png);
+  background-repeat: no-repeat;
+  font-weight:bold;
+}
+
+.menulist_Kyoto{
+  margin: 0 0 15px 0;
+  padding: 5px 2px 0px 5px;
+  width: 220px;
+  text-alig2n: left;
+}
+
+
+.menulist_Kyoto a{
+  height: 20px;
+  color: #004080;
+  display: block;
+  width: 200px;
+  padding: 15px 4px 18px 15px;
+  font-size: 14px;
+  line-height: 160%;
+  background-image: url(img/Link_KyotoUniv.png);
+  background-repeat: no-repeat;
+  font-weight:bold;
+ }
+
+.menulist_Kyoto a:hover{
+  color: #005ebb;
+  background-image: url(img/Link_KyotoUniv_over.png);
+  background-repeat: no-repeat;
+  font-weight:bold;
+}
+
+.menulist_Eng{
+  margin: 0 0 15px 0;
+  padding: 5px 2px 0px 5px;
+  width: 220px;
+  text-alig2n: left;
+}
+
+
+.menulist_Eng a{
+  height: 20px;
+  color: #004080;
+  display: block;
+  width: 200px;
+  padding: 15px 4px 18px 15px;
+  font-size: 14px;
+  line-height: 160%;
+  background-image: url(img/Link_engineering.png);
+  background-repeat: no-repeat;
+  font-weight:bold;
+ }
+.menulist_Eng a:hover{
+  color: #005ebb;
+  background-image: url(img/Link_engineering_over.png);
+  background-repeat: no-repeat;
+  font-weight:bold;
+}
+
+
+
+.menu_free {
+  margin: 0 0 14px 5px;
+  padding: 0;
+  width: 200px;
+  text-align: left;
+  background-image: url(img/menu_back.gif);
+}
+
+.menu_free h2 {
+  height: 19px;
+  margin: 0;
+  padding: 4px 0 2px 12px;
+  font-size: 13px;
+  color: #fffffc;
+  background-image: url(img/sidebar.gif);
+  background-repeat: no-repeat;
+}
+
+.menu_free a{
+  color: #004080;
+  width: 198px;
+  padding: 6px 0 5px 0;
+  font-size: 13px;
+  line-height: 180%;
+ }
+
+.menu_free a:hover{
+  color: #005ebb;
+  line-height: 180%;
+}
+
+.menu_free p{
+  margin: 0;
+  padding: 8px 8px 14px 8px;
+  border-right: solid 1px #9f9f9f;
+  border-bottom: solid 1px #9f9f9f;
+  border-left: solid 1px #9f9f9f;
+  font-size: 12px;
+  background-color: #ffffff;
+  background-image: url(img/menu_back.gif);
+  line-height: 180%;
+}
+
+
+/*---------- フッター ----------*/
+
+#footer {
+  clear: both;
+  width: 100%;
+  margin: 0;
+  padding: 15px 0 15px 0;
+  text-align: center;
+  font-size: 13px;
+  color: #333333;
+  border-top: solid 4px;
+  border-top-color: #004080;
+  background-color: #f3f3f2;
+}
+
+#footer a {
+  color: #333333;
+  font-size: 13px;
+ }
+
+#footer a:hover {
+  color: #333333;
+}
