@@ -207,6 +207,15 @@ p {
   background-repeat: no-repeat;
 }
 
+#contents h3 {
+  height: 28px;
+  margin: 0 0 7px 0;
+  padding: 0px 0 0 20px;
+  font-size: 16px;
+  color: #004080;
+  background-repeat: no-repeat;
+}
+
 #contents h4 {
   height: 58px;
   margin: 0 0 7px 0;
