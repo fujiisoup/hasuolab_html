@@ -15,6 +15,9 @@ def download_details(doi_list, maxcount=None):
         if doi[0] == '#':
             continue
         work = works.doi(doi)
+        if work is None:
+            print(doi)
+        work['doi'] = doi
         details.append(standarize(work))
         if maxcount is not None and j > maxcount:
             break
@@ -44,8 +47,10 @@ def standarize(detail):
         if len(detail['journal-issue']['published-print']['date-parts'][0]) == 1:
             detail['journal-issue']['published-print']['date-parts'][0].append(0)  # month not available
 
-    if 'volume' not in detail:
-        print(detail)
+    if 'container-title' in detail:
+        if len(detail['container-title']) == 0:
+            print(detail['doi'])
+            print(detail)
 
     for author in detail['author']:
         if 'family' not in author:
@@ -159,14 +164,16 @@ def save_html(details, outname, author_list):
 <TR align="left" style="text-align : left;" width="704"><FONT size="2" face="Times New Roman">
 [{}] {}<br>
 {}<br>
-<I>{}</I> <B>{}</B>, {} ({})
+<I>{}</I> <B>{}</B>, {} ({}) <br>
+doi: <a href="https://doi.orgs/{}">{}</a>
 </FONT><BR>
 <BR>
 """.format(
                 count, detail['title'][0],
                 authors, 
                 detail['container-title'][0], detail['volume'], articlenumber, 
-                year)
+                year,
+                detail['doi'], detail['doi'], )
         )
 
     htmls.append(HTML_TABLE_FOOTER)
@@ -176,7 +183,7 @@ def save_html(details, outname, author_list):
     for year in years:
         year = int(year)
         header.append('<a href="#{}"><img src="img/icon.gif" alt="icon" border="0" />{}</a>'.format(year, year))
-        if year % 5 == 4:
+        if year % 5 == 0:
             header.append('<br>')
     header.append('<br>')
 
@@ -186,9 +193,21 @@ def save_html(details, outname, author_list):
             f.write(html + '\n')
 
 
+def remove_duplicates(doi):
+    return list(set([d.lower().strip() for d in doi]))
+
 if __name__ == '__main__':
-    with open('paperlist_fujii.txt', 'r') as f:
-        doi_list = f.readlines()
-    details = download_details(doi_list, maxcount=5)
+    files = [
+        'paperlist_hasuo.txt',
+        'paperlist_shikama.txt',
+        'paperlist_fujii.txt',                 
+    ]
+    doi_list = []
+    for file in files:
+        with open(file, 'r') as f:
+            doi_list += f.readlines()
+    doi_list = remove_duplicates(doi_list)
+    details = download_details(doi_list, maxcount=None)
     # save_markdown(details, 'papers.md')
-    save_html(details, 'papers_all.html', ['fujii'])
+    save_html(details, 'papers_all.html', [
+        'fujii', 'hasuo', 'shikama', 'kuzmin'])
