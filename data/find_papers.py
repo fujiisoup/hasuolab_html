@@ -7,13 +7,17 @@ from crossref.restful import Works
 import numpy as np
 
 
-def download_details(doi_list):
+def download_details(doi_list, maxcount=None):
     works = Works()
     details = []
     for j, doi in enumerate(doi_list):
         doi = doi.strip()
+        if doi[0] == '#':
+            continue
         work = works.doi(doi)
         details.append(standarize(work))
+        if maxcount is not None and j > maxcount:
+            break
     return details
 
 
@@ -99,13 +103,92 @@ def save_markdown(details, outname, author):
             f.write(line + '\n')
 
 
+HTML_TABLE_HEADER = """<h2 id="{}"> {} </h2>
+<TABLE border="0">
+<TBODY>"""
+
+HTML_TABLE_FOOTER = """
+<TR>
+    <TD align="right" style="text-align : right;" width="704" valign="bottom">
+    <a href="#top"><img src="img/up_icon.gif" border="0">top</a>
+    </TD>
+</TR>
+</TBODY>
+</TABLE>
+"""
+
+
+
+def save_html(details, outname, author_list):
+    """
+    Save as a markdown format
+    """
+    if isinstance(author_list, str):
+        author_list = [author_list]
+    author_list = [au.lower() for au in author_list]
+
+    details = sort_by_date(details)
+    htmls = []
+
+    year = None
+    years = []
+    count = 0
+
+    for i, detail in enumerate(details):
+        # if new year, we add a tag
+        this_year = detail['journal-issue']['published-print']['date-parts'][0][0]
+        if year != this_year:
+            year = this_year
+            years.append(year)
+            count = 0
+            if year is not None:
+                htmls.append(HTML_TABLE_FOOTER)
+            htmls.append(HTML_TABLE_HEADER.format(year, year))
+        count += 1
+        authors = ''
+        for author in detail['author']:
+            if author['family'].lower().strip() in author_list:
+                authors += '<U><B>{} {}</B></U>, '.format(author['given'], author['family'])
+            else:
+                authors += '{} {}, '.format(author['given'], author['family'])
+        authors = authors[:-2]  # remove the last comma
+        # journal
+        articlenumber = detail.get('article-number', detail.get('page'))
+        htmls.append(
+"""
+<TR align="left" style="text-align : left;" width="704"><FONT size="2" face="Times New Roman">
+[{}] {}<br>
+{}<br>
+<I>{}</I> <B>{}</B>, {} ({})
+</FONT><BR>
+<BR>
+""".format(
+                count, detail['title'][0],
+                authors, 
+                detail['container-title'][0], detail['volume'], articlenumber, 
+                year)
+        )
+
+    htmls.append(HTML_TABLE_FOOTER)
+
+    # add link
+    header = []
+    for year in years:
+        year = int(year)
+        header.append('<a href="#{}"><img src="img/icon.gif" alt="icon" border="0" />{}</a>'.format(year, year))
+        if year % 5 == 4:
+            header.append('<br>')
+    header.append('<br>')
+
+    htmls = header + htmls
+    with open(outname, 'w') as f:
+        for html in htmls:
+            f.write(html + '\n')
+
+
 if __name__ == '__main__':
-    with open('_papers.csv', 'r') as f:
+    with open('paperlist_fujii.txt', 'r') as f:
         doi_list = f.readlines()
-    details = download_details(doi_list)
-    with open('dois.txt', 'w') as f:
-        for detail in details:
-            f.write('{}\n'.format(detail))
+    details = download_details(doi_list, maxcount=5)
     # save_markdown(details, 'papers.md')
-    save_html(details, 'papers_all.html', 'all')
-    
+    save_html(details, 'papers_all.html', ['fujii'])
