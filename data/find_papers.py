@@ -165,7 +165,7 @@ def save_html(details, outname, author_list):
 [{}] {}<br>
 {}<br>
 <I>{}</I> <B>{}</B>, {} ({}) <br>
-doi: <a href="https://doi.orgs/{}">{}</a>
+doi: <a href="https://doi.org/{}">{}</a>
 </FONT><BR>
 <BR>
 """.format(
@@ -200,6 +200,7 @@ if __name__ == '__main__':
     files = [
         'paperlist_hasuo.txt',
         'paperlist_shikama.txt',
+        'paperlist_kuzmin.txt',
         'paperlist_fujii.txt',                 
     ]
     doi_list = []
