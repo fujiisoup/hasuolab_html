@@ -1,0 +1,130 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml" xml:lang="ja" lang="ja">
+<head>
+<meta http-equiv="Content-Type" content="application/xhtml+xml; charset=UTF-8" />
+<meta name="keywords" content="光工学" />
+<meta name="description" content="紹介文" />
+<title>Publications　光工学研究室</title>
+<link rel="stylesheet" href="style.css" type="text/css" />
+</head>
+
+<body>
+
+<!-- メイン -->
+
+<div id="main">
+
+<!---<div id="header2">
+<table border="0" cellpadding="0" cellspacing="0" width="900">
+  <tr>
+    <h3> 京都大学 工学研究科 機械理工学専攻</h3>
+    <h2> Department of Mechanical Engineering and Science<br> Graduate School of Engineering, Kyoto University </h2>
+  </tr>
+</table>
+</div>
+--->
+<!-- ヘッダー -->
+
+<!-- ヘッダー -->
+<div id="header">
+<!--
+<h1>Department of Mechanical Engineering and Science, Graduate School of Engineering, Kyoto University</h1>
+-->
+<table border="0" cellpadding="0" cellspacing="0" width="900">
+  <tr>
+    <td><div id="table-left"><h2><a href="index.html"><img src="img/top_logo.gif"></a></h2><p></p></div></td>
+    <td><div id="table-right"><a href="http://www.me.t.kyoto-u.ac.jp/ja">京都大学工学研究科 機械理工学専攻<br>Department of Mechanical Engineering and Science<br>Graduate School of Engineering</a><br><br><img src="img/icon.gif" alt="icon" border="0" /> <a href="publications_en.html">English</a></div></td>
+  </tr>
+</table>
+  <h3></h3>
+
+</div>
+
+<!-- ヘッダー終わり -->
+
+
+<!-- コンテンツ -->
+
+<!-- メインコンテンツ -->
+
+<div id="container">
+  <div id="contents">
+
+<h1 id="top">研究成果   Publications</h1>
+
+<TABLE border="0">
+  <TBODY>
+    <TR>
+      <TD align="right" height="70" style="text-align : right;" width="704" valign="bottom"><A href="Conference.html">国際会議リストはこちら</A></TD>
+    </TR>
+  </TBODY>
+</TABLE>
+
+<div><p><?php include('data/papers_all.txt'); ?></p></div>
+</div>
+
+<!-- メインコンテンツ終わり -->
+
+<!-- メニュー -->
+
+  <div id="menu">
+
+
+<div class="menulist">
+<a href="index.html">ホーム</a>
+<a href="research.html">研究</a>
+<a href="people.html">メンバー</a>
+<a href="instruments.html">実験施設</a>
+<a href="publications.html">研究成果</a>
+<a href="about.html">光工学研究室について</a>
+<a href="contact.html">お問い合わせ＆アクセス</a>
+<a href="link.html">リンク</a>
+</div>
+
+<br>
+<div class="menulist_Kyoto">
+<a href="http://www.kyoto-u.ac.jp/ja"></a>
+</div>
+<div class="menulist_Eng">
+<a href="http://www.t.kyoto-u.ac.jp/ja"></a>
+</div>
+
+<br>
+
+<!--
+<div class="menu_free">
+   <h2>フリースペース</h2>
+<p>バナー画像や、アクセス情報などのスペースです。</p>
+</div>
+
+
+<div class="menulist">
+<a href="#">ブログ</a>
+<a href="#">メールマガジン</a>
+</div>
+-->
+
+
+  </div>
+
+<!-- メニュー終わり -->
+
+</div>
+
+<!-- コンテンツ終わり -->
+
+<!-- フッター -->
+
+<div id="footer">
+Copyright, Optical Engineering Laboratory. All rights reserved.&nbsp;&nbsp;&nbsp;&nbsp;
+design by <a href="http://tempnate.com/">tempnate</a>
+</div>
+
+<!-- フッター終わり -->
+
+</div>
+
+<!-- メイン終わり -->
+
+</body>
+</html>
