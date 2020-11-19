@@ -1,7 +1,7 @@
 """
 Find details of papers and export as necessary formats
 Need to install crossref library,
->>> pip install crossref
+>>> pip install crossrefapi
 """
 from crossref.restful import Works
 import numpy as np
