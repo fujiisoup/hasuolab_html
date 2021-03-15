@@ -14,9 +14,13 @@ def download_details(doi_list, maxcount=None):
         doi = doi.strip()
         if doi[0] == '#':
             continue
+        if ',' in doi:
+            doi = [d.strip() for d in doi.split(',')][0]
+
         work = works.doi(doi)
         if work is None:
             print(doi)
+            continue
         work['doi'] = doi
         details.append(standarize(work))
         if maxcount is not None and j > maxcount:

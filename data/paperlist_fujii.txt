@@ -1,51 +1,83 @@
+#-------------------------------------------------------
+#
+# Note
+# For the first-author or corresponding author paper 
+# add ", corresponding" to the last of the doi
+# For the selected papers, add ", corresponding*"
+#
+#-------------------------------------------------------
+#
+# -- 2021 --
+# PRL gamma-decay
+10.1103/PhysRevLett.126.102502, corresponding*
+# JQSRT Arseniy
+10.1016/j.jqsrt.2021.107592
+# POP asahi
+10.1063/5.0023166
 # 2020
+# PRA Togawa
+10.1103/PhysRevA.102.052831
 # ATOMS Tanaka
 10.3390/atoms8040081
 # PRE Nishio
-10.1103/PhysRevE.102.053211
-# PRL Fujii
-10.1103/PhysRevLett.124.225001
+10.1103/PhysRevE.102.053211, corresponding
 # PRL Kuhn
-10.1103/PhysRevLett.124.185002
+10.1103/PhysRevLett.124.225001
+# PRL Fujii
+10.1103/physrevlett.124.185002, corresponding*
 # 2019
 10.1063/1.5143481
 10.1103/PhysRevLett.123.185001
-10.1109/TPS.2019.2921073
+# 2019 robust regression
+10.1109/TPS.2019.2921073, corresponding
+#
 10.1088/1741-4326/ab0e41
 10.7567/1347-4065/aaec19
 10.1016/j.hedp.2019.04.005
-10.1080/15361055.2017.1396179
+# 2018 FST, machine learning noise
+10.1080/15361055.2017.1396179, corresponding
+#
 10.1585/pfr.13.3402058
 10.1585/pfr.13.3406070
 10.7567/jjap.57.01aa03
 10.1016/j.nme.2018.11.009
 10.1088/1741-4326/aa7fc2
 10.1063/1.4990077
-10.1088/1361-6455/50/5/055004
-10.1063/1.4974344
+# 2017 JPhysB fractional abundance
+10.1088/1361-6455/50/5/055004, corresponding
+# 2017 RSI sensitivity
+10.1063/1.4974344, corresponding
+# 2016 FST inversion
+10.13182/FST15-168, corresponding
 10.1585/pfr.11.2402106
-10.13182/FST15-168
 10.1585/pfr.10.1402001
 10.1016/j.jnucmat.2014.11.131
 10.1038/ncomms6816
 10.1088/0029-5515/55/11/113020
 10.1088/0029-5515/55/10/104018
-10.1088/0029-5515/55/6/063029
-10.1088/0031-8949/90/12/125402
-10.1088/0031-8949/90/12/125403
-10.1063/1.4863650
+# NF hydrogen dynamics
+10.1088/0029-5515/55/6/063029, corresponding*
+# PhysicaScripta visibile tungsten
+10.1088/0031-8949/90/12/125402, corresponding
+10.1088/0031-8949/90/12/125403, corresponding
+# RSI HDRspec
+10.1063/1.4863650, corresponding*
 10.1063/1.4815721
 10.1088/0029-5515/53/9/093017
 10.1088/0029-5515/53/10/104015
-10.1063/1.4789454
+# 2013 POP hydrogen transport
+10.1063/1.4789454, corresponding
 10.1088/1742-6596/397/1/012023
 10.1088/1742-6596/397/1/012016
-10.1585/pfr.6.2401125
+# 2011 PFR velocity_crmodel
+10.1585/pfr.6.2401125, corresponding
 10.1088/0741-3335/53/10/105012
 10.1088/0029-5515/51/2/023005
 10.1139/p10-118
-10.1063/1.3356730
-10.1016/j.nima.2010.02.100
+# RSI multiwavelength
+10.1063/1.3356730, corresponding
+# 2010 NIMA kinetic energy
+10.1016/j.nima.2010.02.100, corresponding
 10.1088/0741-3335/51/12/122001
 10.1088/1009-0630/11/4/07
 10.1039/b718655j
