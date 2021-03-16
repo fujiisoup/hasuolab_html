@@ -3,8 +3,14 @@ Find details of papers and export as necessary formats
 Need to install crossref library,
 >>> pip install crossrefapi
 """
-from crossref.restful import Works
 import numpy as np
+from configparser import ConfigParser
+from crossref.restful import Works
+
+
+MASTER_COLOR = 'red'
+DOCTOR_COLOR = 'blue'
+STAFF_COLOR = 'black'
 
 
 def download_details(doi_list, maxcount=None):
@@ -12,7 +18,7 @@ def download_details(doi_list, maxcount=None):
     details = []
     for j, doi in enumerate(doi_list):
         doi = doi.strip()
-        if doi[0] == '#':
+        if len(doi) == 0 or doi[0] == '#':
             continue
         if ',' in doi:
             doi = [d.strip() for d in doi.split(',')][0]
@@ -112,7 +118,8 @@ def save_markdown(details, outname, author):
             f.write(line + '\n')
 
 
-HTML_TABLE_HEADER = """<h2 id="{}"> {} </h2>
+HTML_TABLE_HEADER = """
+<h2 id="{}"> {} </h2>
 <TABLE border="0">
 <TBODY>"""
 
@@ -127,14 +134,26 @@ HTML_TABLE_FOOTER = """
 """
 
 
+def is_same_person(family, given, names):
+    """Check if the [given. family] is the same person with names
+    """
+    for name in names:
+        if '.' in name:
+            g, f = [f.strip() for f in name.split('.')]
+            if g.lower() in given[:1].lower() and f.lower() == family.lower():
+                return True
+        else:
+            if name.lower() == family.lower():
+                return True
+    return False
 
-def save_html(details, outname, author_list):
+def save_html(
+    details, outname, people
+):
     """
     Save as a markdown format
     """
-    if isinstance(author_list, str):
-        author_list = [author_list]
-    author_list = [au.lower() for au in author_list]
+    # author_list = [au.lower() for au in author_list]
 
     details = sort_by_date(details)
     htmls = []
@@ -156,13 +175,29 @@ def save_html(details, outname, author_list):
         count += 1
         authors = ''
         for author in detail['author']:
-            if author['family'].lower().strip() in author_list:
-                authors += '<U><B>{} {}</B></U>, '.format(author['given'], author['family'])
+            family = author['family'].lower().strip()
+            given = author['given'].lower().strip()
+            if is_same_person(family, given, people['master'].get(int(year), [])):
+                authors += '<B style="color:{};">{}. {}</B>, '.format(
+                    MASTER_COLOR, author['given'][:1].upper(), author['family'])
+            elif is_same_person(family, given, people['doctor'].get(int(year), [])):
+                authors += '<B style="color:{};">{}. {}</B>, '.format(
+                    DOCTOR_COLOR, author['given'][:1].upper(), author['family'])
+            elif is_same_person(family, given, people['staff'].get(int(year), [])):
+                authors += '<B style="color:{};">{}. {}</B>, '.format(
+                    STAFF_COLOR, author['given'][:1].upper(), author['family'])
             else:
-                authors += '{} {}, '.format(author['given'], author['family'])
+                authors += '{}. {}, '.format(author['given'][:1].upper(), author['family'])
         authors = authors[:-2]  # remove the last comma
         # journal
         articlenumber = detail.get('article-number', detail.get('page'))
+        
+        # check if articlenumber contains the same number
+        if '-' in articlenumber:
+            pstart, pend = articlenumber.split('-')
+            if pstart.strip() == pend.strip():
+                articlenumber = pstart.strip()
+
         htmls.append(
 """
 <TR align="left" style="text-align : left;" width="704"><FONT size="2" face="Times New Roman">
@@ -175,9 +210,9 @@ doi: <a href="https://doi.org/{}">{}</a>
 """.format(
                 count, detail['title'][0],
                 authors, 
-                detail['container-title'][0], detail['volume'], articlenumber, 
+                detail['container-title'][0], detail.get('volume', ''), articlenumber, 
                 year,
-                detail['doi'], detail['doi'], )
+                detail['doi'], detail['doi'])
         )
 
     htmls.append(HTML_TABLE_FOOTER)
@@ -190,6 +225,16 @@ doi: <a href="https://doi.org/{}">{}</a>
         if year % 5 == 0:
             header.append('<br>')
     header.append('<br>')
+    header.append(
+'''<br>
+<br>
+<b style="color: {};">
+red name: master students
+</b><br>
+<b style="color: {};">
+blue name: doctor students
+</b><br>
+'''.format(MASTER_COLOR, DOCTOR_COLOR))
 
     htmls = header + htmls
     with open(outname, 'w') as f:
@@ -200,7 +245,76 @@ doi: <a href="https://doi.org/{}">{}</a>
 def remove_duplicates(doi):
     return list(set([d.lower().strip() for d in doi]))
 
+
+def read_nondoi(filename):
+    config = ConfigParser()
+    config.read(filename)
+
+    works = []
+    for key, item in config.items():
+        if key == 'DEFAULT':
+            continue
+        work = {}
+        work['title'] = [item['title']]
+        work['container-title'] = [item['journal']]
+        
+        authors = item['authors'].split(',')
+        work['author'] = []
+        for author in authors:
+            author = author.split('.')
+            if len(author) == 1:
+                given = ''
+                family = author[0].strip()
+            else:
+                given = author[0].strip()
+                family = author[1].strip()
+            work['author'].append({
+                'given': given,
+                'family': family
+            })
+        work['journal-issue'] = {
+            'published-print': {'date-parts': [[int(item['year']), 0]]}}
+        work['page'] = item['page']
+        work['volume'] = item['volume']
+        work['doi'] = ''
+        works.append(work)
+    return works
+
+
+def read_people(filename):
+    config = ConfigParser()
+    config.read('staffs_students.ini')
+    
+    master = {}
+    for key, item in config['master'].items():
+        master[int(key)] = [it.strip().lower() for it in item.split(',')]
+    
+    doctor = {}
+    for key, item in config['doctor'].items():
+        start, stop = item.split('-')
+        for year in range(int(start), int(stop) + 1):
+            if year not in doctor:
+                doctor[year] = []
+            doctor[year].append(key.lower())
+
+    staff = {}
+    for key, item in config['staff'].items():
+        start, stop = item.split('-')
+        for year in range(int(start), int(stop) + 1):
+            if year not in staff:
+                staff[year] = []
+            staff[year].append(key.lower())
+
+    return {'master': master, 'doctor': doctor, 'staff': staff}
+
+
 if __name__ == '__main__':
+    # nondoi papers
+    nondoi_works = read_nondoi('nondoi_papers.ini')
+
+    # people
+    people_config = read_people('staffs_students.ini')
+
     files = [
         'paperlist_hasuo.txt',
         'paperlist_shikama.txt',
@@ -213,6 +327,6 @@ if __name__ == '__main__':
             doi_list += f.readlines()
     doi_list = remove_duplicates(doi_list)
     details = download_details(doi_list, maxcount=None)
+    details = details + nondoi_works
     # save_markdown(details, 'papers.md')
-    save_html(details, 'papers_all.html', [
-        'fujii', 'hasuo', 'shikama', 'kuzmin'])
+    save_html(details, '../papers_all.html', people_config)
