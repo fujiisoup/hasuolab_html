@@ -5,7 +5,7 @@
 # Neutral Transport Code for Rovibrational Population Calculation of Molecular Hydrogen in LHD Plasmas 
 10.1002/ctpp.201900153
 # Molecular dynamics simulation for hydrogen recycling on tungsten divertor for neutral transport analysis
-10.35848/1347-4065/abc105
+# 10.35848/1347-4065/abc105  # wrong name hasuo
 
 # before 2019
 10.7567/JJAP.57.01AA03

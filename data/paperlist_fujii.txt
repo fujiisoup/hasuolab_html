@@ -31,7 +31,7 @@
 # 2019 robust regression
 10.1109/TPS.2019.2921073, corresponding
 #
-10.1088/1741-4326/ab0e41
+# 10.1088/1741-4326/ab0e41  # wrong name Fujii -> Fuji
 10.7567/1347-4065/aaec19
 10.1016/j.hedp.2019.04.005
 # 2018 FST, machine learning noise

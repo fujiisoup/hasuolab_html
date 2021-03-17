@@ -177,17 +177,18 @@ def save_html(
         for author in detail['author']:
             family = author['family'].lower().strip()
             given = author['given'].lower().strip()
+            Family = author['family'][0] + family[1:]
             if is_same_person(family, given, people['master'].get(int(year), [])):
                 authors += '<B style="color:{};">{}. {}</B>, '.format(
-                    MASTER_COLOR, author['given'][:1].upper(), author['family'])
+                    MASTER_COLOR, author['given'][:1].upper(), Family)
             elif is_same_person(family, given, people['doctor'].get(int(year), [])):
                 authors += '<B style="color:{};">{}. {}</B>, '.format(
-                    DOCTOR_COLOR, author['given'][:1].upper(), author['family'])
+                    DOCTOR_COLOR, author['given'][:1].upper(), Family)
             elif is_same_person(family, given, people['staff'].get(int(year), [])):
                 authors += '<B style="color:{};">{}. {}</B>, '.format(
-                    STAFF_COLOR, author['given'][:1].upper(), author['family'])
+                    STAFF_COLOR, author['given'][:1].upper(), Family)
             else:
-                authors += '{}. {}, '.format(author['given'][:1].upper(), author['family'])
+                authors += '{}. {}, '.format(author['given'][:1].upper(), Family)
         authors = authors[:-2]  # remove the last comma
         # journal
         articlenumber = detail.get('article-number', detail.get('page'))
