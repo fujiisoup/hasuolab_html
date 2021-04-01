@@ -8,6 +8,10 @@
 #-------------------------------------------------------
 #
 # -- 2021 --
+# Kajita multiple regression
+10.1063/5.0028000
+# NJP Triad transfer
+10.1088/1367-2630/abeffc
 # PRL gamma-decay
 10.1103/PhysRevLett.126.102502, corresponding*
 # JQSRT Arseniy
@@ -31,7 +35,7 @@
 # 2019 robust regression
 10.1109/TPS.2019.2921073, corresponding
 #
-# 10.1088/1741-4326/ab0e41  # wrong name Fujii -> Fuji
+10.1088/1741-4326/ab0e41
 10.7567/1347-4065/aaec19
 10.1016/j.hedp.2019.04.005
 # 2018 FST, machine learning noise
@@ -52,8 +56,7 @@
 10.1585/pfr.11.2402106
 10.1585/pfr.10.1402001
 10.1016/j.jnucmat.2014.11.131
-# Ida nature communication (explicitly write the authors)
-# 10.1038/ncomms6816
+10.1038/ncomms6816
 10.1088/0029-5515/55/11/113020
 10.1088/0029-5515/55/10/104018
 # NF hydrogen dynamics
